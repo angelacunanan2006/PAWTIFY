@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Pawtify: pet adoption and health records</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#efe0cc;--surface:#fff;--ink:#3a2418;--muted:#664a3b;--line:#dcc6ae;--soft:#f8efe4;--brand:#96562a;--brand2:#7a4420;--on:#fff;--deep:#a8335f;--hl:#c24d7d;--pillbg:#f3b6cf;--dog:#fdf0b8;--cat:#fbe0ec;--bun:#e6e0f6;--ph:#3a2418;--err:#b3261e;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+:root{color-scheme:light}
+:root[data-theme="dark"]{--bg:#1d1412;--surface:#2a1e1a;--ink:#f6e9e3;--muted:#c4a99d;--line:#46332c;--soft:#33251f;--brand:#e0a070;--brand2:#f0b888;--on:#2a1608;--deep:#f2a9c4;--hl:#f2a9c4;--err:#ff9a90}
+:root{--banner:url(data:image/jpeg;base64,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)}
+*,*::before,*::after{box-sizing:border-box}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.55 Nunito,system-ui,sans-serif}
+h1,h2,h3{margin:0;line-height:1.12;font-weight:800}
+h1{font-size:clamp(2rem,4.5vw,2.8rem);letter-spacing:-.015em}h2{font-size:1.5rem}h3{font-size:1.1rem}
+p{margin:0 0 .8em;max-width:64ch}a{color:var(--deep)}
+:focus-visible{outline:3px solid var(--pillbg);outline-offset:2px}
+.wrap{max-width:1060px;margin:0 auto;padding:0 20px}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:rgba(239,224,204,.92);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--bg);z-index:6}
+.top{display:flex;align-items:center;gap:14px;min-height:64px}
+.logo{display:flex;align-items:center;gap:8px;font-weight:800;font-size:1.25rem;color:var(--ink);text-decoration:none}
+.logo svg{box-sizing:content-box;width:20px;height:20px;padding:6px;border-radius:50%;background:var(--pillbg);color:#4a1f31}
+.tabs{display:flex;gap:6px;flex:1;justify-content:center;overflow-x:auto}
+.tabs a{padding:7px 16px;border-radius:999px;color:var(--ink);text-decoration:none;font-weight:700;font-size:.92rem;white-space:nowrap}
+.tabs a:hover{background:var(--soft)}
+.tabs a[aria-current="page"]{background:var(--brand);color:var(--on)}
+.rolesel{display:flex;align-items:center;gap:6px;font-size:.8rem;color:var(--muted)}
+select,input,textarea{font:inherit;padding:9px 12px;border:2px solid var(--line);border-radius:10px;background:var(--surface);color:var(--ink);max-width:100%}
+.rolesel select{border-radius:999px;padding:5px 12px;background:var(--soft);font-weight:700;font-size:.85rem}
+.view{padding:28px 0 64px}.view:not(#v-home){background:linear-gradient(rgba(255,255,255,.4),transparent 260px);padding-top:40px}
+.head{margin-bottom:6px}.sub{color:var(--muted);margin:6px 0 0}
+.btn{background:var(--brand);color:var(--on);border:2px solid var(--brand);border-radius:12px;padding:10px 18px;font:700 .92rem Nunito,sans-serif;cursor:pointer;text-decoration:none;display:inline-block;text-align:center;box-shadow:0 4px 10px rgba(150,86,42,.22);transition:transform .15s,background .15s}
+.btn:hover{background:var(--brand2);border-color:var(--brand2);transform:translateY(-1px)}
+.btn.out{background:var(--surface);color:var(--ink);border-color:var(--line);box-shadow:none}.btn.out:hover{background:var(--soft);border-color:var(--pillbg)}
+.btn.sm{padding:4px 10px;font-size:.82rem}
+.btn:disabled{opacity:.45;cursor:not-allowed;transform:none;box-shadow:none}
+.chip{font:700 .88rem Nunito,sans-serif;border:2px solid var(--line);background:var(--surface);color:var(--ink);border-radius:999px;padding:6px 14px;cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--brand);border-color:var(--brand);color:var(--on)}
+.chip:disabled{opacity:.4;cursor:not-allowed}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin:6px 0 14px}
+.bar{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin:18px 0 12px}
+.bar input[type=search],.bar input#vq{flex:1;min-width:200px}
+label{display:grid;gap:4px;font-weight:700;font-size:.88rem}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:20px;margin-top:14px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:22px;overflow:hidden;box-shadow:0 2px 4px rgba(150,80,100,.05),0 12px 28px rgba(150,80,100,.08);transition:transform .2s,box-shadow .2s}.card:hover{transform:translateY(-4px);box-shadow:0 16px 34px rgba(150,80,100,.15)}
+.cb{padding:16px}
+.ph{height:128px;display:grid;place-items:center;color:var(--ph);background-image:radial-gradient(circle at 25% 15%,rgba(255,255,255,.75),transparent 60%)!important}.ph svg{box-sizing:content-box;width:30px;height:30px;padding:16px;border-radius:50%;background:rgba(255,255,255,.72)}.ph.big{height:150px}
+.row{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.pill{background:var(--pillbg);color:#4a1f31;border-radius:999px;padding:1px 10px;font-size:.78rem;font-weight:800;white-space:nowrap}
+.meta{color:var(--muted);font-size:.88rem;margin:2px 0}
+.btns{display:flex;gap:8px;margin-top:14px}.btns .btn{flex:1;padding:8px 6px}
+.tag{display:inline-block;border-radius:999px;padding:2px 10px;font-size:.82rem;font-weight:700;background:var(--soft);margin:6px 6px 0 0}
+.tag.ok{background:var(--pillbg);color:#4a1f31}
+.note,.panel{background:var(--soft);border:1px solid var(--line);border-radius:14px;padding:18px 20px;margin-top:24px}
+.note p{margin:.3em 0 0}
+.panel.w{background:var(--surface)}
+.fgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px;align-items:end}.wide{grid-column:1/-1}
+.empty{color:var(--muted);padding:18px 0}.err{color:var(--err);font-weight:600}
+.hist{list-style:none;margin:10px 0 0;padding:0 0 0 14px;border-left:3px solid var(--pillbg)}
+.hist li{margin-bottom:10px}.hist p{margin:0}
+.qr{display:flex;gap:14px;align-items:center;margin-top:16px;padding-top:14px;border-top:1px solid var(--line)}
+.clin{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:18px;margin-top:10px}
+.slots{display:flex;gap:6px;flex-wrap:wrap}
+.tw{overflow-x:auto;margin-top:20px}
+table{width:100%;border-collapse:collapse;background:var(--surface);border:1px solid var(--line);border-radius:12px}
+th,td{text-align:left;padding:10px 14px;border-bottom:1px solid var(--line);white-space:nowrap}
+td.n,th.n{text-align:right}.act{display:flex;gap:6px}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:16px;margin-top:18px}
+.stat{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:18px}
+.stat b{display:block;font-size:2rem;font-weight:800;line-height:1.1}
+.bars div{display:grid;grid-template-columns:70px 1fr 24px;gap:10px;align-items:center;margin:8px 0}
+.bars i{display:block;height:14px;border-radius:7px;background:var(--pillbg)}
+.banner{height:clamp(150px,17vw,240px);background:var(--banner) center/cover no-repeat;-webkit-mask-image:linear-gradient(#000 55%,transparent);mask-image:linear-gradient(#000 55%,transparent)}
+.hero{text-align:center;margin-top:-10px}.hero p{margin-inline:auto}
+.hero h1{font-size:clamp(2.5rem,7vw,4.6rem);letter-spacing:-.02em;line-height:1.04}
+.hl{color:var(--hl)}
+.hpill{display:inline-block;background:#e8bdc6;color:#4a1f31;border-radius:999px;padding:4px 16px;font-size:.9rem;font-weight:700;margin-bottom:16px}
+.lead{font-size:1.15rem;color:var(--muted);margin-top:16px}
+.rcards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;max-width:760px;margin:34px auto 0;text-align:center}
+.rcard{background:var(--surface);border:1px solid var(--line);border-radius:24px;padding:28px 16px;color:var(--ink);font:inherit;cursor:pointer;box-shadow:0 2px 4px rgba(150,80,100,.05),0 12px 28px rgba(150,80,100,.09);transition:transform .2s,box-shadow .2s}
+.rcard:hover{transform:translateY(-5px);border-color:var(--pillbg);box-shadow:0 18px 36px rgba(150,80,100,.16)}
+.ico{width:58px;height:58px;border-radius:18px;background:linear-gradient(135deg,#f3b0ca,#e07fa6);display:grid;place-items:center;margin:0 auto 14px;box-shadow:0 8px 16px rgba(224,127,166,.35)}
+.rcard p{font-size:.9rem;color:var(--muted);margin:6px auto 0}
+.steps{list-style:none;margin:20px 0 0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:18px;counter-reset:s}
+.steps li{counter-increment:s;background:var(--soft);border:1px solid #f8dde6;border-radius:22px;padding:24px}
+.steps li::before{content:counter(s);display:grid;place-items:center;width:34px;height:34px;border-radius:50%;background:var(--pillbg);color:#4a1f31;font-weight:800;margin-bottom:10px}
+.steps p{color:var(--muted);margin:.4em 0 0}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-top:20px}
+.stack span{display:inline-block;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:4px 12px;font-weight:600;margin:4px 6px 4px 0}
+ul.plain{margin:10px 0 0;padding-left:1.1em}
+.cta{margin:48px 0 0;text-align:center;background:linear-gradient(135deg,#fdf1f5,#fbd9e6);border-radius:28px;padding:46px 24px}.cta p{margin:10px auto 22px;color:var(--muted)}
+input:focus,select:focus,textarea:focus{outline:none;border-color:var(--pillbg);box-shadow:0 0 0 4px #fbe0ec}
+dialog{border:0;border-radius:24px;padding:0;max-width:520px;width:calc(100% - 28px);background:var(--surface);color:var(--ink);max-height:88vh}
+dialog::backdrop{background:rgba(58,36,24,.45)}
+.mb{padding:20px 24px 24px}
+#toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translate(-50%,20px);background:var(--ink);color:var(--bg);padding:10px 18px;border-radius:12px;opacity:0;pointer-events:none;transition:.25s;z-index:20;max-width:90vw;text-align:center}
+#toast.on{opacity:1;transform:translate(-50%,0)}
+footer{border-top:1px solid var(--line);padding:26px 0 40px;color:var(--muted);font-size:.9rem}footer p{margin:0 0 .3em;max-width:none}
+@media (max-width:760px){.top{flex-wrap:wrap;padding:8px 0}.tabs{order:3;flex-basis:100%;justify-content:flex-start}.rolesel{margin-left:auto}.rcards,.steps,.two{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}#toast,.card,.rcard,.btn{transition:none}.card:hover,.rcard:hover,.btn:hover{transform:none}}
+</style>
+</head>
+<body>
+<header><div class="wrap top">
+<a class="logo" href="#home"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><ellipse cx="12" cy="16.5" rx="4.6" ry="3.8"/><circle cx="5.5" cy="11" r="2.2"/><circle cx="9.5" cy="6.5" r="2.2"/><circle cx="14.5" cy="6.5" r="2.2"/><circle cx="18.5" cy="11" r="2.2"/></svg>Pawtify</a>
+<nav class="tabs" id="tabs" aria-label="Main"></nav>
+<label class="rolesel">Viewing as <select id="role"><option>Adopter</option><option>Rescuer</option><option>Vet</option><option>Administrator</option></select></label>
+</div></header>
+<main>
+<section class="view" id="v-home" style="padding-top:0">
+<div class="banner" role="img" aria-label="Illustration of a golden retriever and a tabby cat"></div>
+<div class="wrap hero">
+<span class="hpill">Welcome to Pawtify</span>
+<h1>Every paw deserves a <span class="hl">loving home</span></h1>
+<p class="lead">Connect rescuers, adopters, and vets in one place. Give a rescued pet a second chance at happiness.</p>
+<div class="rcards">
+<button class="rcard" data-a="go" data-r="Adopter"><div class="ico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg></div><h3>Pet Adopter</h3><p>Browse &amp; adopt your new best friend</p></button>
+<button class="rcard" data-a="go" data-r="Rescuer"><div class="ico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v5c0 5-3 8-7 10-4-2-7-5-7-10V6z"/></svg></div><h3>Rescuer</h3><p>List rescued pets for adoption</p></button>
+<button class="rcard" data-a="go" data-r="Vet"><div class="ico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3v6a4 4 0 0 0 8 0V3"/><path d="M10 13v2a5 5 0 0 0 10 0v-2"/><circle cx="20" cy="11" r="2"/></svg></div><h3>Veterinarian</h3><p>Scan QR codes &amp; manage pet health</p></button>
+</div>
+<p class="meta" style="margin-top:14px">Tap a role to try that side of Pawtify with sample data. You can switch roles any time at the top right.</p>
+</div>
+<div class="wrap" style="margin-top:40px">
+<h2>How a pet moves through Pawtify</h2>
+<ol class="steps">
+<li><h3>Before listing</h3><p>Staff accounts and roles are set up. Pet details, photos and medical information are prepared.</p></li>
+<li><h3>During adoption</h3><p>The profile is published. Adopters browse it, and the status updates when the adoption is done.</p></li>
+<li><h3>After adoption</h3><p>The pet shows up in My Pets. Its medical history stays on file, and vets can retrieve it by QR code or pet ID.</p></li>
+</ol>
+<div class="cta"><h2>Ready to meet your new best friend?</h2><p>Browse the pets waiting for a home and read their full health history first.</p><button class="btn" data-a="go" data-r="Adopter">Browse available pets</button></div>
+</div>
+</section>
+<section class="view" id="v-browse"><div class="wrap"></div></section>
+<section class="view" id="v-mypets"><div class="wrap"></div></section>
+<section class="view" id="v-booking"><div class="wrap"></div></section>
+<section class="view" id="v-manage"><div class="wrap"></div></section>
+<section class="view" id="v-vet"><div class="wrap"></div></section>
+<section class="view" id="v-appts"><div class="wrap"></div></section>
+<section class="view" id="v-admin"><div class="wrap"></div></section>
+<section class="view" id="v-about"><div class="wrap"></div></section>
+</main>
+<footer><div class="wrap">
+<p><b>Pawtify</b>: Development of a Web-Based Pet Adoption and Health Record Management System. <a href="#about">About the project</a></p>
+<p>By Nicole G. Palenzuela. Adviser: Einstein D. Yong. School of Engineering, Asia Pacific College, November 2026.</p>
+<p>All pets, clinics and people shown here are sample data.</p>
+</div></footer>
+<dialog id="dlg"><div id="dlg-b"></div></dialog>
+<div id="toast" role="status" aria-live="polite"></div>
+<script>
+const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>[...r.querySelectorAll(s)];
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const PAW='<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><ellipse cx="12" cy="16.5" rx="4.6" ry="3.8"/><circle cx="5.5" cy="11" r="2.2"/><circle cx="9.5" cy="6.5" r="2.2"/><circle cx="14.5" cy="6.5" r="2.2"/><circle cx="18.5" cy="11" r="2.2"/></svg>';
+const COL={Dog:"var(--dog)",Cat:"var(--cat)",Rabbit:"var(--bun)"},SLOTS=["9:00 AM","10:30 AM","1:00 PM","3:30 PM"];
+const NAV={Adopter:[["browse","Browse"],["mypets","My Pets"],["booking","Vet Booking"]],Rescuer:[["browse","Browse"],["manage","Manage Pets"]],Vet:[["vet","Pet Records"],["appts","Appointments"]],Administrator:[["admin","Dashboard"]]};
+const today=new Date().toISOString().slice(0,10);
+const S={role:"Adopter",f:"All",q:"",sel:null,bp:"",bd:new Date(Date.now()+864e5).toISOString().slice(0,10),vp:"PAW-0003",vq:"PAW-0003",n:6,bookings:[],
+pets:[
+{id:"PAW-0001",name:"Buddy",sp:"Dog",breed:"Golden Retriever",age:"2 years",sex:"Male",org:"Happy Tails Rescue",vac:true,neu:true,adopted:true,desc:"Gentle, friendly and great with kids.",h:[["2026-03-12","Vaccination","Anti-rabies dose recorded."],["2026-08-02","Checkup","Routine checkup. Healthy weight."]]},
+{id:"PAW-0002",name:"Mochi",sp:"Rabbit",breed:"Holland Lop",age:"6 months",sex:"Female",org:"Little Paws Shelter",vac:true,neu:false,adopted:true,desc:"Curious and calm. Loves leafy greens.",h:[["2026-06-20","Checkup","Dental and weight check."]]},
+{id:"PAW-0003",name:"Luna",sp:"Cat",breed:"Puspin",age:"1 year",sex:"Female",org:"Happy Tails Rescue",vac:true,neu:false,adopted:false,desc:"Playful tabby who enjoys window watching.",h:[["2026-07-15","Vaccination","Core vaccine series started."],["2026-07-15","Treatment","Deworming completed."]]},
+{id:"PAW-0004",name:"Biscuit",sp:"Dog",breed:"Shih Tzu mix",age:"4 years",sex:"Male",org:"Little Paws Shelter",vac:false,neu:true,adopted:false,desc:"Laid-back lap dog who needs a quiet home.",h:[["2026-05-04","Surgery","Neutering completed without complications."]]},
+{id:"PAW-0005",name:"Pip",sp:"Dog",breed:"Aspin",age:"8 months",sex:"Male",org:"Happy Tails Rescue",vac:true,neu:false,adopted:false,desc:"Energetic puppy and a quick learner.",h:[["2026-09-01","Vaccination","First puppy vaccine recorded."]]},
+{id:"PAW-0006",name:"Miso",sp:"Cat",breed:"Domestic shorthair",age:"3 years",sex:"Female",org:"Little Paws Shelter",vac:true,neu:true,adopted:false,desc:"Shy at first, affectionate once she knows you.",h:[["2026-04-18","Checkup","Healthy and spayed."]]}],
+clinics:[{id:1,name:"Happy Paws Animal Clinic",addr:"12 Maple St., Sample City",rate:4.8,sp:["General care","Dental"],left:6},{id:2,name:"Riverside Pet Hospital",addr:"40 River Rd., Sample City",rate:4.6,sp:["Surgery","Dermatology"],left:4},{id:3,name:"Cuddle Care Vet",addr:"7 Plum Ave., Sample City",rate:4.9,sp:["Exotic pets","Vaccination"],left:8}],
+users:[{n:"Alex Rivera",e:"alex@example.com",r:"Adopter",on:true},{n:"Sam Cruz",e:"sam@example.com",r:"Rescuer",on:true},{n:"Dr. Lee Tan",e:"lee@example.com",r:"Vet",on:true},{n:"Jo Reyes",e:"jo@example.com",r:"Adopter",on:false}]};
+const toast=m=>{const t=$("#toast");t.textContent=m;t.classList.add("on");clearTimeout(toast.t);toast.t=setTimeout(()=>t.classList.remove("on"),2800)};
+function qr(seed){let s=0,c="";for(const ch of seed)s=(s*31+ch.charCodeAt(0))>>>0;const f=(x,y)=>(x<3&&y<3)||(x>5&&y<3)||(x<3&&y>5);for(let y=0;y<9;y++)for(let x=0;x<9;x++){s=(Math.imul(s,1103515245)+12345)>>>0;if(f(x,y)||(s>>>16)&1)c+=`<rect x="${x}" y="${y}" width="1" height="1"/>`}return `<svg viewBox="-1 -1 11 11" width="92" height="92" role="img" aria-label="Sample QR code for ${seed}" style="background:#fff;border-radius:8px;flex:none"><g fill="#3a2418">${c}</g></svg>`}
+const tags=p=>`<span class="tag ${p.adopted?"":"ok"}">${p.adopted?"Adopted":"Available"}</span><span class="tag">${p.vac?"Vaccinated":"Not yet vaccinated"}</span><span class="tag">${p.neu?"Neutered":"Not neutered"}</span>`;
+const hist=p=>p.h.length?`<ul class="hist">${[...p.h].sort((a,b)=>b[0].localeCompare(a[0])).map(r=>`<li><b>${esc(r[1])}</b> <span class="meta">${r[0]}</span><p>${esc(r[2])}</p></li>`).join("")}</ul>`:'<p class="empty">No medical records yet.</p>';
+const card=p=>`<article class="card"><div class="ph" style="background:${COL[p.sp]||"var(--soft)"}">${PAW}</div><div class="cb"><div class="row"><h3>${esc(p.name)}</h3><span class="pill">${esc(p.age)}</span></div><div class="meta">${esc(p.breed)}</div><div class="meta">${esc(p.org)}</div><div class="btns"><button class="btn" data-a="open" data-id="${p.id}">View Profile</button><button class="btn out" data-a="open" data-id="${p.id}" data-h="1">Medical History</button></div></div></article>`;
+const pn=id=>(S.pets.find(p=>p.id===id)||{name:"Pet"}).name;
+const W=id=>$("#v-"+id+" .wrap");
+function openPet(id,h){const p=S.pets.find(x=>x.id===id);if(!p)return;
+$("#dlg-b").innerHTML=`<div class="ph big" style="background:${COL[p.sp]||"var(--soft)"}">${PAW}</div><div class="mb"><div class="row"><h2>${esc(p.name)}</h2><span class="pill">${esc(p.age)}</span></div><p class="meta">${esc(p.breed)}, ${p.sex}, ${esc(p.org)}</p><div>${tags(p)}</div><p style="margin-top:12px">${esc(p.desc||"")}</p><h3 id="hh" style="margin-top:14px">Medical history</h3>${hist(p)}<div class="qr">${qr(p.id)}<div><b>${p.id}</b><p class="meta">Vets can scan this code or enter the pet ID to retrieve this record.</p></div></div><div class="btns" style="margin-top:18px">${S.role==="Adopter"&&!p.adopted?`<button class="btn" data-a="request">Request adoption</button>`:""}${S.role==="Vet"?`<button class="btn" data-a="tovet" data-id="${p.id}">Open in Pet Records</button>`:""}<button class="btn out" data-a="close">Close</button></div></div>`;
+$("#dlg").showModal();if(h)$("#hh").scrollIntoView({block:"start"})}
+function vBrowse(){W("browse").innerHTML=`<div class="head"><h1>Browse Pets</h1><p class="sub">Find a pet waiting for a home</p></div><div class="bar"><input id="q" type="search" placeholder="Search by name or breed" value="${esc(S.q)}" aria-label="Search pets"></div><div class="chips">${["All","Dog","Cat","Rabbit"].map(f=>`<button class="chip" data-a="filter" data-f="${f}" aria-pressed="${S.f===f}">${f==="All"?"All pets":f+"s"}</button>`).join("")}</div><div class="grid" id="grid"></div>`;grid()}
+function grid(){const q=S.q.toLowerCase(),l=S.pets.filter(p=>!p.adopted&&(S.f==="All"||p.sp===S.f)&&(p.name+" "+p.breed).toLowerCase().includes(q));$("#grid").innerHTML=l.length?l.map(card).join(""):'<p class="empty">No available pets match. Try another species or clear the search.</p>'}
+function vMy(){const l=S.pets.filter(p=>p.adopted),b=S.bookings;W("mypets").innerHTML=`<div class="head"><h1>My Pets</h1><p class="sub">Pets you have adopted and their health records</p></div><div class="grid">${l.length?l.map(card).join(""):'<p class="empty">No adopted pets yet. Browse available pets to find one.</p>'}</div><div class="note"><h3>Upcoming veterinary visit</h3>${b.length?b.map(x=>`<p><b>${esc(pn(x.p))}</b> at ${esc(S.clinics.find(c=>c.id===x.c).name)}, ${x.d} at ${x.s}</p>`).join(""):'<p>No appointment yet. Book one from the <a href="#booking">Vet Booking</a> page.</p>'}</div>`}
+function vBook(){const mine=S.pets.filter(p=>p.adopted);if(!mine.some(p=>p.id===S.bp))S.bp=mine[0]?mine[0].id:"";
+const taken=(c,s)=>S.bookings.some(b=>b.c===c&&b.d===S.bd&&b.s===s);
+W("booking").innerHTML=`<div class="head"><h1>Vet Booking</h1><p class="sub">Choose a clinic and a time for your pet’s visit</p></div>${mine.length?`<div class="bar"><label>Pet<select id="bp">${mine.map(p=>`<option value="${p.id}"${p.id===S.bp?" selected":""}>${esc(p.name)}</option>`).join("")}</select></label><label>Date<input type="date" id="bd" value="${S.bd}" min="${today}"></label></div>`:'<p class="empty">Adopt a pet first. Appointments are booked for pets in My Pets.</p>'}<div class="clin">${S.clinics.map(c=>`<article class="card cb"><div class="row"><h3>${esc(c.name)}</h3><span class="pill">★ ${c.rate}</span></div><p class="meta">${esc(c.addr)}</p><div>${c.sp.map(x=>`<span class="tag">${x}</span>`).join("")}</div><p class="meta" style="margin-top:8px">${c.left} slots left</p><div class="slots">${SLOTS.map(s=>`<button class="chip" data-a="slot" data-c="${c.id}" data-s="${s}" aria-pressed="${!!(S.sel&&S.sel.c===c.id&&S.sel.s===s)}"${taken(c.id,s)||!mine.length||!c.left?" disabled":""}>${s}</button>`).join("")}</div></article>`).join("")}</div><div class="note"><button class="btn" data-a="confirm"${S.sel&&mine.length?"":" disabled"}>Confirm booking</button> <span class="meta">${S.sel?esc(S.clinics.find(c=>c.id===S.sel.c).name)+", "+S.bd+" at "+S.sel.s:"Choose a time slot first."}</span></div>`}
+function vManage(){W("manage").innerHTML=`<div class="head"><h1>Manage Pets</h1><p class="sub">Add pet profiles and update adoption status</p></div><form id="addf" class="panel w fgrid"><label>Name<input name="name" required maxlength="24"></label><label>Species<select name="sp"><option>Dog</option><option>Cat</option><option>Rabbit</option></select></label><label>Breed<input name="breed" required maxlength="30"></label><label>Age<input name="age" placeholder="e.g. 2 years" required maxlength="14"></label><label class="wide">Description<input name="desc" maxlength="90"></label><button class="btn">Add pet profile</button></form><div class="tw"><table><thead><tr><th>Pet</th><th>Species</th><th>Status</th><th></th></tr></thead><tbody>${S.pets.map(p=>`<tr><td>${esc(p.name)} <span class="meta">${p.id}</span></td><td>${p.sp}</td><td>${p.adopted?"Adopted":"Available"}</td><td class="act"><button class="btn out sm" data-a="flip" data-id="${p.id}">${p.adopted?"Make available":"Mark adopted"}</button><button class="btn out sm" data-a="del" data-id="${p.id}">Remove</button></td></tr>`).join("")}</tbody></table></div>`}
+function vVet(){const p=S.pets.find(x=>x.id===S.vp);W("vet").innerHTML=`<div class="head"><h1>Pet Records</h1><p class="sub">Retrieve a record by QR code or pet ID</p></div><form id="vf" class="bar"><input id="vq" value="${esc(S.vq)}" placeholder="Enter pet ID, e.g. PAW-0003" aria-label="Pet ID"><button class="btn">Find pet</button></form><div class="chips">${S.pets.map(x=>`<button class="chip" type="button" data-a="vpick" data-id="${x.id}" aria-pressed="${x.id===S.vp}">${esc(x.name)} (${x.id})</button>`).join("")}</div>${p?`<div class="panel w"><div class="row" style="align-items:flex-start"><div><h2>${esc(p.name)}</h2><p class="meta">${esc(p.breed)}, ${p.age}, ${p.sex}</p><div>${tags(p)}</div></div>${qr(p.id)}</div><h3 style="margin-top:16px">Medical history</h3>${hist(p)}<form id="rf" class="fgrid" style="margin-top:14px"><label>Type<select name="t"><option>Vaccination</option><option>Checkup</option><option>Treatment</option><option>Surgery</option></select></label><label class="wide">Notes<input name="x" required maxlength="120" placeholder="What was done?"></label><button class="btn">Save record</button></form></div>`:'<p class="err">No pet found for that ID. A pet must be registered in Pawtify before its record can be retrieved.</p>'}`}
+function vAppts(){W("appts").innerHTML=`<div class="head"><h1>Appointments</h1><p class="sub">Visits booked by adopters</p></div>${S.bookings.length?`<div class="tw"><table><thead><tr><th>Pet</th><th>Clinic</th><th>Date</th><th>Time</th></tr></thead><tbody>${S.bookings.map(b=>`<tr><td>${esc(pn(b.p))}</td><td>${esc(S.clinics.find(c=>c.id===b.c).name)}</td><td>${b.d}</td><td>${b.s}</td></tr>`).join("")}</tbody></table></div>`:'<p class="empty">No appointments yet. Switch to Adopter and book a visit from Vet Booking.</p>'}`}
+function vAdmin(){const av=S.pets.filter(p=>!p.adopted).length,rec=S.pets.reduce((n,p)=>n+p.h.length,0),spc=["Dog","Cat","Rabbit"].map(s=>[s,S.pets.filter(p=>p.sp===s).length]),mx=Math.max(1,...spc.map(x=>x[1]));
+W("admin").innerHTML=`<div class="head"><h1>Reports and Dashboard</h1><p class="sub">A summary of the records stored in Pawtify</p></div><div class="stats">${[["Pets available",av],["Pets adopted",S.pets.length-av],["Visits booked",S.bookings.length],["Medical records",rec]].map(x=>`<div class="stat"><b>${x[1]}</b>${x[0]}</div>`).join("")}</div><div class="panel w bars"><h3>Pets by species</h3>${spc.map(x=>`<div><span>${x[0]}</span><i style="width:${x[1]/mx*100}%"></i><b>${x[1]}</b></div>`).join("")}</div><h3 style="margin-top:26px">User and role management</h3><div class="tw" style="margin-top:10px"><table><thead><tr><th>Name</th><th>Email</th><th>Role</th><th>Status</th></tr></thead><tbody>${S.users.map((u,i)=>`<tr><td>${u.n}</td><td>${u.e}</td><td><select data-u="${i}" aria-label="Role for ${u.n}">${Object.keys(NAV).map(r=>`<option${r===u.r?" selected":""}>${r}</option>`).join("")}</select></td><td><button class="btn out sm" data-a="utog" data-u="${i}">${u.on?"Active, tap to deactivate":"Inactive, tap to activate"}</button></td></tr>`).join("")}</tbody></table></div>`}
+function vAbout(){const B=[["Project Manager",41,"16,400"],["Systems Analyst",50,"17,500"],["UI/UX Designer",38,"11,400"],["Front-End Developer",148,"44,400"],["Back-End Developer",175,"52,500"],["Database Developer",71,"21,300"],["Software Tester",58,"14,500"],["Documenter",88,"17,600"]];
+W("about").innerHTML=`<div class="head"><h1>About the project</h1><p class="sub">A software design project proposal for the BS in Computer Engineering at Asia Pacific College, November 2026.</p></div><div class="two"><div><h3>Objectives</h3><ul class="plain"><li>Secure sign-in with role-based access control</li><li>A central database for pets, medical records and clinics</li><li>Organized pet information for authorized users</li><li>A health record module to view and update records</li><li>Record retrieval by QR code or pet ID</li><li>Interfaces suited to administrators, adopters and vets</li></ul><h3 style="margin-top:22px">Boundaries</h3><ul class="plain"><li>Demonstrated with sample data, not live shelter databases</li><li>No payment or donation features</li><li>Academic scope, not full-scale deployment</li></ul><h3 style="margin-top:22px">Technical stack</h3><div class="stack">${["Next.js","Tailwind CSS","shadcn/ui","Node.js","Supabase"].map(x=>`<span>${x}</span>`).join("")}</div></div><div><h3>Manpower budget over 12 weeks</h3><div class="tw" style="margin-top:10px"><table><thead><tr><th>Role</th><th class="n">Hours</th><th class="n">PHP</th></tr></thead><tbody>${B.map(r=>`<tr><td>${r[0]}</td><td class="n">${r[1]}</td><td class="n">${r[2]}</td></tr>`).join("")}</tbody><tfoot><tr><th>Total</th><th class="n">669</th><th class="n">195,600</th></tr></tfoot></table></div><p class="meta" style="margin-top:8px">Rates are estimates used only for the academic budget.</p></div></div>`}
+const VIEWS={browse:vBrowse,mypets:vMy,booking:vBook,manage:vManage,vet:vVet,appts:vAppts,admin:vAdmin,about:vAbout};
+function route(){let v=location.hash.slice(1)||"home";if(v!=="home"&&!VIEWS[v])v="home";if(v!=="home"&&v!=="about"&&!NAV[S.role].some(t=>t[0]===v)){location.hash=NAV[S.role][0][0];return}
+$("#tabs").innerHTML=[["home","Home"]].concat(NAV[S.role]).map(t=>`<a href="#${t[0]}"${t[0]===v?' aria-current="page"':""}>${t[1]}</a>`).join("");
+$$(".view").forEach(e=>e.hidden=e.id!=="v-"+v);if(VIEWS[v])VIEWS[v]();window.scrollTo(0,0)}
+document.addEventListener("click",e=>{const t=e.target.closest("[data-a]");if(!t)return;const d=t.dataset,dl=$("#dlg"),A={
+open:()=>openPet(d.id,d.h),
+close:()=>dl.close(),
+filter:()=>{S.f=d.f;vBrowse()},
+go:()=>{S.role=d.r;$("#role").value=d.r;location.hash=NAV[d.r][0][0];route()},
+slot:()=>{S.sel={c:+d.c,s:d.s};vBook()},
+confirm:()=>{if(!S.sel)return;const c=S.clinics.find(x=>x.id===S.sel.c);S.bookings.push({p:S.bp,c:c.id,d:S.bd,s:S.sel.s});c.left--;S.sel=null;toast("Appointment booked. See it under My Pets.");vBook()},
+flip:()=>{const p=S.pets.find(x=>x.id===d.id);p.adopted=!p.adopted;toast(p.name+" is now "+(p.adopted?"marked adopted":"available"));vManage()},
+del:()=>{S.pets=S.pets.filter(p=>p.id!==d.id);toast("Pet profile removed");vManage()},
+vpick:()=>{S.vp=d.id;S.vq=d.id;vVet()},
+utog:()=>{const u=S.users[d.u];u.on=!u.on;toast(u.n+(u.on?" activated":" deactivated"));vAdmin()},
+request:()=>{dl.close();toast("Adoption request sent. A rescuer will review it.")},
+tovet:()=>{dl.close();S.vp=d.id;S.vq=d.id;location.hash="vet";route()}};
+if(A[d.a])A[d.a]()});
+document.addEventListener("input",e=>{if(e.target.id==="q"){S.q=e.target.value;grid()}});
+document.addEventListener("change",e=>{const t=e.target;if(t.id==="role"){S.role=t.value;route()}else if(t.id==="bp")S.bp=t.value;else if(t.id==="bd"){S.bd=t.value||S.bd;S.sel=null;vBook()}else if(t.dataset.u!==undefined&&t.tagName==="SELECT"){S.users[t.dataset.u].r=t.value;toast("Role updated to "+t.value)}});
+document.addEventListener("submit",e=>{e.preventDefault();const f=e.target,v=Object.fromEntries(new FormData(f));
+if(f.id==="addf"){S.pets.push({id:"PAW-"+String(++S.n).padStart(4,"0"),name:v.name.trim(),sp:v.sp,breed:v.breed.trim(),age:v.age.trim(),sex:"Not set",org:"Your shelter",vac:false,neu:false,adopted:false,desc:v.desc,h:[]});toast(v.name.trim()+" was added to the listings");vManage()}
+else if(f.id==="vf"){S.vq=v.vq||$("#vq").value;const p=S.pets.find(x=>x.id===S.vq.trim().toUpperCase());S.vp=p?p.id:"";vVet()}
+else if(f.id==="rf"){const p=S.pets.find(x=>x.id===S.vp);p.h.push([today,v.t,v.x.trim()]);if(v.t==="Vaccination")p.vac=true;toast("Medical record saved");vVet()}});
+$("#dlg").addEventListener("click",e=>{if(e.target===e.currentTarget)e.currentTarget.close()});
+addEventListener("hashchange",route);route();
+</script>
+</body>
+</html>
